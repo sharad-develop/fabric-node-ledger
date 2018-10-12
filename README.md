@@ -22,18 +22,18 @@ I have used node v8.12.0 and fabric v1.2.
 ## Chaincode
   ### Deploy
     ### Terminal 1
-        cd /fabric-samples/fabcar
-        ./startFabric.sh
-        docker logs -f peer0.org1.example.com
+    cd /fabric-samples/fabcar
+    ./startFabric.sh
+    docker logs -f peer0.org1.example.com
 
-        ### Terminal2
-        cd /fabric-node-ledger
-        CORE_CHAINCODE_ID_NAME="ledgerCC:v1" node chaincode/ledgerCC.js --peer.address grpc://0.0.0.0:7052
+    ### Terminal2
+    cd /fabric-node-ledger
+    CORE_CHAINCODE_ID_NAME="ledgerCC:v1" node chaincode/ledgerCC.js --peer.address grpc://0.0.0.0:7052
 
-        ### Terminal 3
-        docker exec -it cli bash 
-        CORE_PEER_LOCALMSPID=Org1MSP peer chaincode install -l node -n ledgerCC -p node-cc/ -v v1
-        CORE_PEER_LOCALMSPID=Org1MSP peer chaincode instantiate -l node -n ledgerCC -v v1 -C mychannel -c '{"args":["init"]}'
+    ### Terminal 3
+    docker exec -it cli bash 
+    CORE_PEER_LOCALMSPID=Org1MSP peer chaincode install -l node -n ledgerCC -p node-cc/ -v v1
+    CORE_PEER_LOCALMSPID=Org1MSP peer chaincode instantiate -l node -n ledgerCC -v v1 -C mychannel -c '{"args":["init"]}'
 
   ### Test
     ### Terminal 3
@@ -51,6 +51,8 @@ node index.js
 Example requests:
 ### Enroll admin
 http://localhost:3000/api/enroll/admin
+
+Request:
 {
 	"username":"admin",
 	"password":"adminpw"
@@ -58,6 +60,8 @@ http://localhost:3000/api/enroll/admin
 
 ### Register user
 http://localhost:3000/api/enroll/user
+
+Request:
 {
 	"username":"user1"
 }
@@ -65,6 +69,8 @@ http://localhost:3000/api/enroll/user
 
 ### Add account
 http://localhost:3000/api/ledger/addaccount
+
+Request:
 {
 	"username":"user1",
 	"account":{
@@ -77,6 +83,8 @@ http://localhost:3000/api/ledger/addaccount
 
 ### Transfer balance
 http://localhost:3000/api/ledger/transfer
+
+Request:
 {
 	"username":"user1",
 	"transfer":{
@@ -89,6 +97,8 @@ http://localhost:3000/api/ledger/transfer
 
 ### Query
 http://localhost:3000/api/ledger/query
+
+Request:
 {
 	"username":"user8",
 	"account":{
