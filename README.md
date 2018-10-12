@@ -20,27 +20,27 @@ That admin is admin/adminpw. Subsequent(smart contract) requests requires enroll
 I have used node v8.12.0 and fabric v1.2.
 
 ## Chaincode
-### Deploy
-####Terminal 1
-cd /fabric-samples/fabcar
-./startFabric.sh
-docker logs -f peer0.org1.example.com
+  ### Deploy
+    ### Terminal 1
+        cd /fabric-samples/fabcar
+        ./startFabric.sh
+        docker logs -f peer0.org1.example.com
 
-####Terminal2
-cd /fabric-node-ledger
-CORE_CHAINCODE_ID_NAME="ledgerCC:v1" node chaincode/ledgerCC.js --peer.address grpc://0.0.0.0:7052
+        ### Terminal2
+        cd /fabric-node-ledger
+        CORE_CHAINCODE_ID_NAME="ledgerCC:v1" node chaincode/ledgerCC.js --peer.address grpc://0.0.0.0:7052
 
-####Terminal 3
-docker exec -it cli bash 
-CORE_PEER_LOCALMSPID=Org1MSP peer chaincode install -l node -n ledgerCC -p node-cc/ -v v1
-CORE_PEER_LOCALMSPID=Org1MSP peer chaincode instantiate -l node -n ledgerCC -v v1 -C mychannel -c '{"args":["init"]}'
+        ### Terminal 3
+        docker exec -it cli bash 
+        CORE_PEER_LOCALMSPID=Org1MSP peer chaincode install -l node -n ledgerCC -p node-cc/ -v v1
+        CORE_PEER_LOCALMSPID=Org1MSP peer chaincode instantiate -l node -n ledgerCC -v v1 -C mychannel -c '{"args":["init"]}'
 
-###Test
-####Terminal 3
-peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["query","1"]}'
-peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["queryAll"]}'
-peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["addAccount","5","Sam","50"]}'
-peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["transfer","1","2","10"]}'
+  ### Test
+    ### Terminal 3
+    peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["query","1"]}'
+    peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["queryAll"]}'
+    peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["addAccount","5","Sam","50"]}'
+    peer chaincode invoke -n ledgerCC -C mychannel -c '{"Args":["transfer","1","2","10"]}'
 
 ## Run
 cd /fabric-node-ledger
