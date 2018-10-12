@@ -77,9 +77,8 @@ Request:
 		"id":"7",
 		"name":"Tim",
 		"balance":"75"
-		
-	}
-}
+    }
+    }
 
 ### Transfer balance
 http://localhost:3000/api/ledger/transfer
@@ -91,8 +90,7 @@ Request:
 		"from":"1",
 		"to":"2",
 		"balance":"10"
-		
-	}
+    }
 }
 
 ### Query
@@ -103,7 +101,7 @@ Request:
 	"username":"user8",
 	"account":{
 		"id":"1"
-	}
+    }
 }
 
 For more detailed info visit hyperledger documentation.
