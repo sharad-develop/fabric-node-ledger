@@ -1,0 +1,19 @@
+{
+  "name": "fabric-node-ledger",
+  "version": "1.0.0",
+  "description": "Hyperledger Fabric sample ledger application with Node SDK",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ledgerCC.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "fabric-ca-client": "1.2.2",
+    "fabric-client": "1.2.2",
+    "fabric-shim": "1.2.0",
+    "grpc": "^1.6.0"
+  },
+  "author": "sharad",
+  "license": "ISC"
+}
